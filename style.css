@@ -1,0 +1,72 @@
+body{
+  background-color: darkSeaGreen;
+}
+/*general content container*/
+.easel{
+  background-image: url('http://www.wildtextures.com/wp-content/uploads/2011/10/wildtextures-old-wood-original-file.jpg');
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+
+/*grid stuff*/
+
+.gridContainer {
+  background-image: url('http://www.zingerbug.com/Backgrounds/background_images/gray_canvas_seamless.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.gridSquare {
+  background-color: none;
+  height: 30px;
+  width: 30px;
+  border: .5px solid dimGrey;
+}
+
+/*palette stuff*/
+
+.paletteContainer {
+  border-radius: 30px;
+  background-color: white;
+  font-size: 36px;
+  border: 2px solid grey;
+  margin: 5px 10px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paletteColor {
+  border-radius: 50%;
+  border: 2px solid black;
+  height: 60px;
+  width: 60px;
+}
+
+.currentColorContainer {
+  border: none;
+}
+
+.currentColor {
+  border: 2px solid black;
+  background: repeating-linear-gradient(
+  -45deg,
+  white,
+  white 10px,
+  lightGrey 10px,
+  lightGrey 20px
+  );
+}
