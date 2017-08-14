@@ -1,31 +1,35 @@
 document.addEventListener('DOMContentLoaded', function(){
 
 //target the easel and add a click event listener to the easel,
-//also the event listener will target the grid, and the palette
+//also the event listener will target the grid and the palette
 //allowing color picking and background changing on the grid
 let easel = document.querySelector('.easel')
 let gridContainer = document.querySelector('.gridContainer')
+let colorSelected
+let backgroundImageColor
 
 easel.addEventListener('click', function(){
   if(event.target && event.target.matches('.paletteColor')){
-    let colorSelected = event.target.style.backgroundColor
-    currentColor.style.cssText = `background: ${colorSelected}`
+    colorSelected = event.target.style.backgroundColor
+    backgroundImageColor = event.target.style.backgroundImage
+    currentColor.style.cssText = `background: ${colorSelected}; background-image: ${backgroundImageColor}`
   } if(event.target && event.target.matches('.gridSquare')){
     event.target.style.cssText = `background-color: ${currentColor.style.backgroundColor}`
   }
 })
 
-// //hidden functionality
-// let body = document.querySelector('body')
-// body.addEventListener('click', function(){
-//
-// })
-
-//attempting to drag paint
+//hidden functionality - pull color from the webpage body
+let body = document.querySelector('body')
+body.addEventListener('click', function(){
+  if(event.target && event.target.matches('body')){
+    colorSelected = event.target.style.backgroundColor
+    currentColor.style.cssText = `background: ${colorSelected}; background-image: radial-gradient(circle farthest-corner at 8px 8px, ghostWhite 10%, ${colorSelected} 50%) `
+  }
+})
 
 //make the grid and append each grid square to the gridContainer
  function makeGrid(){
-   for (var i = 0; i < 1000; i++) {
+   for (var i = 0; i < 980; i++) {
      let gridSquare = document.createElement('div')
      gridSquare.classList.add('gridSquare')
      gridContainer.appendChild(gridSquare)
@@ -40,7 +44,7 @@ let paletteColor
 let myColors =['red','orange', 'yellow', 'green', 'teal', 'cyan', 'blue','purple', 'black', 'grey', 'white']
 
 let currentColor = document.createElement('div')
-currentColor.classList.add('paletteColor', 'currentColor')
+currentColor.classList.add('currentColor')
 let currentColorContainer = document.createElement('div')
 currentColorContainer.classList.add('paletteContainer', 'currentColorContainer')
 currentColorContainer.innerText = 'Current color: '
@@ -49,7 +53,7 @@ function makePalette(){
   for (var i = 0; i < myColors.length; i++) {
     paletteColor = document.createElement('div')
     paletteColor.classList.add('paletteColor')
-    paletteColor.style.cssText = `background-color: ${myColors[i]}`
+    paletteColor.style.cssText = `background-color: ${myColors[i]}; background-image: radial-gradient(circle farthest-corner at 8px 8px, ghostWhite 10%, ${myColors[i]} 50%) `
     paletteContainer.appendChild(paletteColor)
   }
   paletteContainer.appendChild(currentColorContainer)
