@@ -27,6 +27,32 @@ body.addEventListener('click', function(){
   }
 })
 
+
+//attempting to drag-paint
+
+let isMouseDown = false
+
+function mouseDown() {
+  isMouseDown = true
+}
+
+function mouseUp() {
+  isMouseDown = false
+}
+
+function mouseOver() {
+  if (isMouseDown) {
+
+  }
+}
+easel.addEventListener('mousedown', function(){
+  if(event.target && event.target.matches('.gridSquare')){
+
+    }
+
+})
+
+
 //make the grid and append each grid square to the gridContainer
  function makeGrid(){
    for (var i = 0; i < 980; i++) {
